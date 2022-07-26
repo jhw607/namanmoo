@@ -127,7 +127,7 @@ io.on('connection', (socket) => {
         socket.broadcast.emit(`${roomID}`, '상대방이 나갔습니다.');
     });
 });
-
+ 
 app.post('/interview', (req, res, next) => {
     const interviewId = req.body['interviewId'];
     for (const roomName of Object.values(socketToRoom)) {
