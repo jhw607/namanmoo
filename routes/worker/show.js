@@ -13,12 +13,13 @@ const { request } = require("http");
     'cursor': null
 } */
 showRouter.post("/hourly_orders", async (req, res, next) => {
-  const con = await pool.getConnection(async (conn) => conn);
-  /* 1. 해당 order에 해당하는 hourly_order 가져오기. */
-  // FK_hourlyorders_workers === NULL인 것만.
-  let cursor = Number(req.body["cursor"]) || 0;
-  console.log(cursor);
-  const sql = `SELECT A.hourlyorders_id, A.FK_hourlyorders_orders AS order_id, A.FK_hourlyorders_workers, A.work_date, A.start_time, B.FK_orders_stores AS store_id, B.FK_orders_jobs AS job_id, B.description, B.min_price, C.FK_stores_owners, C.name, C.address, C.latitude, C.longitude, C.minimum_wage, C.background_image_url, C.background_image, D.type FROM hourly_orders A 
+    console.log('show1');
+    const con = await pool.getConnection(async (conn) => conn);
+    /* 1. 해당 order에 해당하는 hourly_order 가져오기. */
+    // FK_hourlyorders_workers === NULL인 것만.
+    let cursor = Number(req.body["cursor"]) || 0;
+    console.log('cursor: ', cursor);
+    const sql = `SELECT A.hourlyorders_id, A.FK_hourlyorders_orders AS order_id, A.FK_hourlyorders_workers, A.work_date, A.start_time, B.FK_orders_stores AS store_id, B.FK_orders_jobs AS job_id, B.description, B.min_price, C.FK_stores_owners, C.name, C.address, C.latitude, C.longitude, C.minimum_wage, C.background_image_url, C.background_image, D.type FROM hourly_orders A 
                     INNER JOIN orders B ON A.FK_hourlyorders_orders = B.order_id 
                     INNER JOIN stores C ON B.FK_orders_stores = C.store_id 
                     INNER JOIN jobs D ON B.FK_orders_jobs = D.job_id
@@ -57,7 +58,8 @@ showRouter.use("/hourly_orders", async (req, res) => {
         req.body["valid_hourly_orders"]
       )
     );
-  } catch {
+    // console.log('//////show1');
+} catch {
     con.release();
     res.send("error-show/hourly_orders");
   }
@@ -78,7 +80,8 @@ module.exports = showRouter;
 */
 /* 1. worker의 range를 가져오자 */
 showRouter.post("/hourly_orders2", async (req, res, next) => {
-  const con = await pool.getConnection(async (conn) => conn);
+    // console.log('show2');
+    const con = await pool.getConnection(async (conn) => conn);
   const sql =
     "SELECT `range`, latitude, longitude FROM workers WHERE worker_id=? LIMIT 1";
 
@@ -186,6 +189,8 @@ showRouter.use("/hourly_orders2", async (req, res, next) => {
   }
   con.release();
   res.send(store_orders);
+//   console.log('//////show2');
+
 });
 
 /************************ function *************************/

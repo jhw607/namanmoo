@@ -15,25 +15,20 @@ const pool = require('./function');
 /* 면접 가능한 매장 정보를 return (지정 거리 이내) 
   data form === 
   {
-    'worker_id': 1,
-    'cursor': null
+    'worker_id': 1
   } */
 storeerRouter.post('/list', async (req, res) => {
     const con = await pool.getConnection(async (conn) => conn);
     try {
         const sql = 'SELECT `latitude`, `longitude`, `range` FROM workers WHERE worker_id=?';
-        
-        let cursor = Number(req.body["cursor"]) || 0;
-        
         /* 1. 해당 worker의 위도, 경도, 거리 설정 정보 가져오기 */
         const [worker_info] = await con.query(sql, req.body['worker_id']);
         // console.log(worker_info);
 
         /* 2. store 정보 모두 가져오기 */
         // 내게 권한 없는 정보만 가져와야 한다. 어떻게?
-        const sql2 = `SELECT * FROM stores WHERE store_id>${cursor} and store_id NOT IN 
-                        (SELECT FK_qualifications_stores FROM qualifications 
-                            WHERE FK_qualifications_workers=?) order by store_id limit 100;`;
+        const sql2 =
+            'SELECT * FROM stores WHERE store_id NOT IN (SELECT FK_qualifications_stores FROM qualifications WHERE FK_qualifications_workers=?) order by store_id;';
         const [stores_info] = await con.query(sql2, req.body['worker_id']);
         // console.log(stores_info);
 
