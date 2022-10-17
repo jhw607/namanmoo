@@ -1,4 +1,4 @@
-# 바로알바
+<h1 style="color:red">바로알바</h1>
 
 # [프로젝트 소개]
 
@@ -10,7 +10,7 @@
 
 - **🌱 poster :**
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/19a7d568-22f1-4e4f-9391-5fb3bfe3eb9b/Untitled.jpeg)
+    ![image](https://user-images.githubusercontent.com/68524314/196237510-8c158881-7cbd-4373-8ec3-c7fbce054c59.png)
     
 - **🌱 youtube :**
     
@@ -36,12 +36,19 @@
 
 ## 주요 기능
 
-![image](https://user-images.githubusercontent.com/68524314/196235931-e82204e8-4290-4ca2-a70b-f5ee77a3660c.png)
-![image](https://user-images.githubusercontent.com/68524314/196235507-b24e80e9-d758-4361-81e8-95d30d323c41.png)
-![image](https://user-images.githubusercontent.com/68524314/196235558-ef9c752d-7eb4-4709-aa4a-19cedda8d22e.png)
-![image](https://user-images.githubusercontent.com/68524314/196236361-d737cfe1-d61e-4dad-9d49-97fef78e0136.png)
-![image](https://user-images.githubusercontent.com/68524314/196236205-e2396afa-c849-434d-ae4d-0fa1b2cda4d4.png)
-![image](https://user-images.githubusercontent.com/68524314/196236255-9efcc734-8eb6-4520-99b3-664620e350f0.png)
+#### 1. 화상 면접
+<!-- ![image](https://user-images.githubusercontent.com/68524314/196235931-e82204e8-4290-4ca2-a70b-f5ee77a3660c.png) -->
+#### 2. 알바 예약
+<!-- ![image](https://user-images.githubusercontent.com/68524314/196235507-b24e80e9-d758-4361-81e8-95d30d323c41.png) -->
+#### 3. 바로 채팅
+<!-- ![image](https://user-images.githubusercontent.com/68524314/196235558-ef9c752d-7eb4-4709-aa4a-19cedda8d22e.png) -->
+#### 4. 알바 추천
+<!-- ![image](https://user-images.githubusercontent.com/68524314/196236361-d737cfe1-d61e-4dad-9d49-97fef78e0136.png) -->
+#### 5. QR 출석체크
+<!-- ![image](https://user-images.githubusercontent.com/68524314/196236205-e2396afa-c849-434d-ae4d-0fa1b2cda4d4.png) -->
+#### 6. 알바천사
+<!-- ![image](https://user-images.githubusercontent.com/68524314/196236255-9efcc734-8eb6-4520-99b3-664620e350f0.png) -->
+
 
 ---
 # [프로젝트 내 역할]
